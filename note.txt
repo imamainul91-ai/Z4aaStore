@@ -1,0 +1,21 @@
+function updateCartDisplay() {
+            const cartItems = document.getElementById('cartItems');
+            if (cartCount > 0) {
+                cartItems.innerHTML = `
+                    <div class="flex items-center gap-4 glass p-4 rounded-2xl">
+                        <div class="w-16 h-16 rounded-xl bg-gray-800 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold">Nike Red High</h4>
+                            <p class="text-sm text-gray-400">Rp 1.899K</p>
+                        </div>
+                        <button onclick="removeFromCart()" class="text-red-400 hover:text-red-300">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `.repeat(cartCount);
+                
+                document.getElementById('cartTotal').textContent = 'Rp ' + (1899 * cartCount).toLocaleString() + 'K';
+            }
+        }
